@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Pong Bar.png" type="Texture" id=1]
+[ext_resource path="res://Movement.gd" type="Script" id=2]
+[ext_resource path="res://pong ball.png" type="Texture" id=3]
+[ext_resource path="res://BallMovement.gd" type="Script" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "Hit",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 45, 126.5 )
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 4.60435
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Paddle1" type="KinematicBody2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Paddle1"]
+position = Vector2( 96, 200 )
+scale = Vector2( 10.125, 9.75 )
+frames = SubResource( 5 )
+animation = "Hit"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle1"]
+position = Vector2( 102, 201.5 )
+shape = SubResource( 6 )
+
+[node name="Paddle2" type="KinematicBody2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Paddle2"]
+position = Vector2( 903, 247 )
+scale = Vector2( 10.125, 9.75 )
+frames = SubResource( 5 )
+animation = "Hit"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle2"]
+position = Vector2( 907, 244 )
+shape = SubResource( 6 )
+
+[node name="Ball" type="KinematicBody2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Ball"]
+position = Vector2( 400, 250 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+position = Vector2( 400, 250 )
+scale = Vector2( 5, 5 )
+shape = SubResource( 7 )
