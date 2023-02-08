@@ -7,6 +7,7 @@ extends KinematicBody2D
 #var direction = Vector2(-1.0, 0.0)
 var speed = 80
 var velocity = Vector2()
+var rng = RandomNumberGenerator.new()
 
 
 # Called when the node enters the scene tree for the first time.
@@ -21,7 +22,13 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		_handle_direction(collision)
+		
 
 func _handle_direction(collision: KinematicCollision2D):
-	velocity = velocity.bounce(collision.normal)
-	velocity.x = velocity.x - 100 if velocity.x < 0 else velocity.x + 100
+	if collision.collider.name == "Roof" or collision.collider.name == "Ceilling":
+		velocity.y = -velocity.y
+	else:
+		velocity = velocity.bounce(collision.normal)
+		velocity.x = velocity.x - 100 if velocity.x < 0 else velocity.x + 100
+		velocity.y = rng.randi_range(-250, 250)
+	
