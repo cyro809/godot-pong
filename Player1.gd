@@ -16,9 +16,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("p1_move_down"):
 		speed.y = 100
-	elif Input.is_action_pressed("ui_up"):
+	elif Input.is_action_pressed("p1_move_up"):
 		speed.y = -100
 	else:
 		speed.y = 0
