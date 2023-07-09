@@ -3,7 +3,7 @@ extends Node
 
 # Declare member variables here. Examples:
 var ball_node = null;
-
+var score_node = null;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

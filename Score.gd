@@ -11,6 +11,7 @@ func _ready():
 	$Player1Score.text = String(p1_score)
 	$Player2Score.text = String(p2_score)
 	ball.connect("score_signal", self, "_add_score_player")
+	Globals.score_node = self
 
 func _add_score_player(goal_name: String):
 	if goal_name == "Player1Goal":
