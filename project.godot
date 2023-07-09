@@ -28,6 +28,11 @@ config/icon="res://icon.png"
 
 Globals="*res://globals.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
 [editor]
 
 version_control_autoload_on_startup=true
