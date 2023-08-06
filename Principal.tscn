@@ -72,6 +72,7 @@ shape = SubResource( 9 )
 position = Vector2( 514, 304 )
 
 [node name="AcceptDialog" type="AcceptDialog" parent="."]
+pause_mode = 2
 margin_left = 484.0
 margin_top = 250.0
 margin_right = 574.0
