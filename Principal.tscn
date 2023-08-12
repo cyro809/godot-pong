@@ -33,6 +33,7 @@ shape = SubResource( 7 )
 [node name="Node2D" parent="." instance=ExtResource( 2 )]
 
 [node name="Node2D2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 12 )
 
 [node name="Roof" type="StaticBody2D" parent="."]
 position = Vector2( 100, 0 )
