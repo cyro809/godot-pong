@@ -21,22 +21,24 @@ func _process(delta):
 		ai_control = not ai_control
 		
 	if ai_control:
-		self._ai_movement()
+		self._cpu_control()
 	else:
-		if Input.is_action_pressed("p2_move_down"):
-			speed.y = 100
-		elif Input.is_action_pressed("p2_move_up"):
-			speed.y = -100
-		else:
-			speed.y = 0
-#	position.x = my_position_x
+		self._human_control()
+
 	var collision = move_and_collide(speed * delta)
 	if collision != null:
 		if collision.collider.name == "Ball":
 			Globals.ball_node.velocity.x = 180
 
+func _human_control():
+	if Input.is_action_pressed("p2_move_down"):
+			speed.y = 100
+	elif Input.is_action_pressed("p2_move_up"):
+		speed.y = -100
+	else:
+		speed.y = 0
 
-func _ai_movement():
+func _cpu_control():
 	speed.y = self._ai_speed_on_ball_position()
 	
 func _ai_speed_on_ball_position():
