@@ -12,7 +12,6 @@ var ai_control = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	my_position_x = position.x
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -49,5 +48,3 @@ func _ai_speed_on_ball_position():
 		return 100
 	elif ball_position + ball_height/2 < global_position.y + get_node("AnimatedSprite").frames.get_frame("default", 0).get_height()/2:
 		return -100
-#	else:
-#		return 0
