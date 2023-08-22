@@ -6,6 +6,7 @@ extends KinematicBody2D
 # var b = "text"
 var my_position_x = null
 var speed = Vector2(0, 0)
+var speed_force = 200
 onready var ball = get_tree().current_scene.get_node("Ball")
 var ai_control = false
 
@@ -31,9 +32,9 @@ func _process(delta):
 
 func _human_control():
 	if Input.is_action_pressed("p2_move_down"):
-			speed.y = 100
+			speed.y = speed_force
 	elif Input.is_action_pressed("p2_move_up"):
-		speed.y = -100
+		speed.y = -speed_force
 	else:
 		speed.y = 0
 
@@ -45,6 +46,6 @@ func _ai_speed_on_ball_position():
 	var ball_height = ball.get_node("Sprite").texture.get_height()
 	
 	if ball_position + ball_height/2 > global_position.y + get_node("AnimatedSprite").frames.get_frame("default", 0).get_height()/2:
-		return 100
+		return speed_force
 	elif ball_position + ball_height/2 < global_position.y + get_node("AnimatedSprite").frames.get_frame("default", 0).get_height()/2:
-		return -100
+		return -speed_force

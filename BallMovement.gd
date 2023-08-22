@@ -5,7 +5,8 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 #var direction = Vector2(-1.0, 0.0)
-var speed = 80
+var INITIAL_SPEED = 120
+var speed = INITIAL_SPEED
 var velocity = Vector2()
 var rng = RandomNumberGenerator.new()
 signal score_signal(goal_name)
@@ -47,3 +48,4 @@ func add_score(goal_name: String):
 func _reset_ball():
 	self.position.x = get_viewport_rect().size.x/2
 	self.position.y = get_viewport_rect().size.y/2
+	velocity.x = INITIAL_SPEED

@@ -6,6 +6,7 @@ extends KinematicBody2D
 # var b = "text"
 var my_position_x = null
 var speed = Vector2(0, 0)
+var speed_force = 200
 
 
 # Called when the node enters the scene tree for the first time.
@@ -16,9 +17,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_pressed("p1_move_down"):
-		speed.y = 100
+		speed.y = speed_force
 	elif Input.is_action_pressed("p1_move_up"):
-		speed.y = -100
+		speed.y = -speed_force
 	else:
 		speed.y = 0
 
