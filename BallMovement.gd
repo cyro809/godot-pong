@@ -36,7 +36,8 @@ func _handle_direction(collision: KinematicCollision2D):
 	else:
 		velocity = velocity.bounce(collision.normal)
 		velocity.x = velocity.x - 100 if velocity.x < 0 else velocity.x + 100
-		velocity.y = rng.randi_range(-250, 250)
+#		velocity.y = rng.randi_range(-250, 250)
+		print(collision.collider.global_position)
 
 func is_goal(collision: KinematicCollision2D):
 	return collision.collider.name == "Player1Goal" or collision.collider.name == "Player2Goal"
@@ -49,3 +50,6 @@ func _reset_ball():
 	self.position.x = get_viewport_rect().size.x/2
 	self.position.y = get_viewport_rect().size.y/2
 	velocity.x = INITIAL_SPEED
+	
+func _handle_ball_angle(collision_position):
+	pass
