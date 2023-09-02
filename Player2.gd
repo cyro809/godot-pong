@@ -1,12 +1,8 @@
-extends KinematicBody2D
+extends BasePlayer
 
+class_name Player2
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var my_position_x = null
-var speed = Vector2(0, 0)
-var speed_force = 200
 onready var ball = get_tree().current_scene.get_node("Ball")
 var ai_control = false
 
@@ -23,20 +19,9 @@ func _process(delta):
 	if ai_control:
 		self._cpu_control()
 	else:
-		self._human_control()
+		human_control("p2_move_up", "p2_move_down")
 
-	var collision = move_and_collide(speed * delta)
-	if collision != null:
-		if collision.collider.name == "Ball":
-			Globals.ball_node.velocity.x = 180
-
-func _human_control():
-	if Input.is_action_pressed("p2_move_down"):
-			speed.y = speed_force
-	elif Input.is_action_pressed("p2_move_up"):
-		speed.y = -speed_force
-	else:
-		speed.y = 0
+	move(delta)
 
 func _cpu_control():
 	speed.y = self._ai_speed_on_ball_position()

@@ -9,13 +9,31 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "BasePlayer",
+"language": "GDScript",
+"path": "res://BasePlayer.gd"
+}, {
 "base": "EditorVCSInterface",
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://addons/godot-git-plugin/git_api.gdns"
+}, {
+"base": "BasePlayer",
+"class": "Player1",
+"language": "GDScript",
+"path": "res://Player1.gd"
+}, {
+"base": "BasePlayer",
+"class": "Player2",
+"language": "GDScript",
+"path": "res://Player2.gd"
 } ]
 _global_script_class_icons={
-"GitAPI": ""
+"BasePlayer": "",
+"GitAPI": "",
+"Player1": "",
+"Player2": ""
 }
 
 [application]
