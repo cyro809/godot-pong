@@ -8,22 +8,23 @@
 [ext_resource path="res://WinDialog.gd" type="Script" id=6]
 
 [sub_resource type="CircleShape2D" id=7]
-radius = 4.60435
+radius = 2.60768
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 5.605, 5 )
+extents = Vector2( 6.39, 5 )
 
 [sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 10, 11.86 )
+extents = Vector2( 10, 14.38 )
 
 [node name="Node2D" type="Node2D"]
+position = Vector2( 130, 57 )
 
 [node name="Ball" type="KinematicBody2D" parent="."]
 position = Vector2( 400, 250 )
 script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="Ball"]
-scale = Vector2( 5, 5 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
@@ -31,19 +32,27 @@ scale = Vector2( 5, 5 )
 shape = SubResource( 7 )
 
 [node name="Node2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( -120, 100 )
 
 [node name="Node2D2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 150, 50 )
 
 [node name="Roof" type="StaticBody2D" parent="."]
-position = Vector2( 100, 0 )
+position = Vector2( 102, -57 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Roof"]
-position = Vector2( 404.5, -25 )
+position = Vector2( 410, -25 )
 scale = Vector2( 100, 5 )
 shape = SubResource( 8 )
 
 [node name="Ceilling" type="StaticBody2D" parent="."]
-position = Vector2( 100, 500 )
+position = Vector2( 96, 563 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ceilling"]
 position = Vector2( 415, 128 )
@@ -51,15 +60,21 @@ scale = Vector2( 100, 5 )
 shape = SubResource( 8 )
 
 [node name="Player1Goal" type="StaticBody2D" parent="."]
-position = Vector2( 0, 50 )
+position = Vector2( -125, 50 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player1Goal"]
-position = Vector2( -55, 252.5 )
+position = Vector2( -55, 254.5 )
 scale = Vector2( 5, 25 )
 shape = SubResource( 9 )
 
 [node name="Player2Goal" type="StaticBody2D" parent="."]
-position = Vector2( 500, 50 )
+position = Vector2( 628, 55 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player2Goal"]
 position = Vector2( 579, 250 )
@@ -67,6 +82,7 @@ scale = Vector2( 5, 25 )
 shape = SubResource( 9 )
 
 [node name="Score" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2, -55 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 514, 304 )
