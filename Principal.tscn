@@ -19,8 +19,11 @@ extents = Vector2( 10, 14.38 )
 [node name="Node2D" type="Node2D"]
 
 [node name="Ball" type="KinematicBody2D" parent="."]
-position = Vector2( 400, 250 )
+position = Vector2( 517, 300 )
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="Ball"]
 scale = Vector2( 3, 3 )
