@@ -5,7 +5,7 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 #var direction = Vector2(-1.0, 0.0)
-var INITIAL_SPEED = 120
+var INITIAL_SPEED = 200
 var speed = INITIAL_SPEED
 var velocity = Vector2()
 var rng = RandomNumberGenerator.new()
