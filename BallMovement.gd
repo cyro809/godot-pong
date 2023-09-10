@@ -5,11 +5,13 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 #var direction = Vector2(-1.0, 0.0)
-var INITIAL_SPEED = 120
+var INITIAL_SPEED = 200
 var speed = INITIAL_SPEED
 var velocity = Vector2()
 var rng = RandomNumberGenerator.new()
 signal score_signal(goal_name)
+var ANGLE_OFFSET = 8
+var X_SPEED_OFFSET = 100
 
 
 # Called when the node enters the scene tree for the first time.
@@ -34,9 +36,15 @@ func _handle_direction(collision: KinematicCollision2D):
 	if collision.collider.name == "Roof" or collision.collider.name == "Ceilling":
 		velocity.y = -velocity.y
 	else:
+		var paddle_position = collision.collider.global_position
+		var collision_position = collision.position
+		var paddle_height = collision.collider.get_node("AnimatedSprite").frames.get_frame("default", 0).get_height()
 		velocity = velocity.bounce(collision.normal)
-		velocity.x = velocity.x - 100 if velocity.x < 0 else velocity.x + 100
-		velocity.y = rng.randi_range(-250, 250)
+		velocity.x = velocity.x - X_SPEED_OFFSET if velocity.x < 0 else velocity.x + X_SPEED_OFFSET
+		velocity.y = ((collision_position.y - paddle_position.y) * ANGLE_OFFSET)
+		print("Paddle POS: %s" % paddle_position.y)
+		print("Collision POS: %s" % collision_position.y)
+		print("Velocity Y: %s" % velocity.y)
 
 func is_goal(collision: KinematicCollision2D):
 	return collision.collider.name == "Player1Goal" or collision.collider.name == "Player2Goal"
@@ -49,3 +57,7 @@ func _reset_ball():
 	self.position.x = get_viewport_rect().size.x/2
 	self.position.y = get_viewport_rect().size.y/2
 	velocity.x = INITIAL_SPEED
+	velocity.y = 0
+	
+func _handle_ball_angle(collision_position):
+	pass

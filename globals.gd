@@ -5,6 +5,8 @@ extends Node
 var ball_node = null;
 var score_node = null;
 var win_dialog = null;
+var player_1 = null;
+var player_2 = null;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
