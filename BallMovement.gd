@@ -12,6 +12,7 @@ var rng = RandomNumberGenerator.new()
 signal score_signal(goal_name)
 var ANGLE_OFFSET = 8
 var X_SPEED_OFFSET = 100
+var INITIAL_POSITION = position
 
 
 # Called when the node enters the scene tree for the first time.
@@ -42,9 +43,6 @@ func _handle_direction(collision: KinematicCollision2D):
 		velocity = velocity.bounce(collision.normal)
 		velocity.x = velocity.x - X_SPEED_OFFSET if velocity.x < 0 else velocity.x + X_SPEED_OFFSET
 		velocity.y = ((collision_position.y - paddle_position.y) * ANGLE_OFFSET)
-		print("Paddle POS: %s" % paddle_position.y)
-		print("Collision POS: %s" % collision_position.y)
-		print("Velocity Y: %s" % velocity.y)
 
 func is_goal(collision: KinematicCollision2D):
 	return collision.collider.name == "Player1Goal" or collision.collider.name == "Player2Goal"
@@ -54,8 +52,7 @@ func add_score(goal_name: String):
 	
 
 func _reset_ball():
-	self.position.x = get_viewport_rect().size.x/2
-	self.position.y = get_viewport_rect().size.y/2
+	self.position = INITIAL_POSITION
 	velocity.x = INITIAL_SPEED
 	velocity.y = 0
 	
