@@ -70,6 +70,7 @@ position = Vector2( 2, 0 )
 shape = SubResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Paddle1"]
+autoplay = "idle"
 anims/RESET = SubResource( 7 )
 anims/hit = SubResource( 8 )
 anims/idle = SubResource( 9 )

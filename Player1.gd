@@ -21,5 +21,7 @@ func _process(delta):
 		playerAnimation.play("hit")
 		yield(playerAnimation, "animation_finished")
 	else:
+		yield(playerAnimation, "animation_finished")
 		playerAnimation.play("idle")
+		yield(playerAnimation, "animation_finished")
 	move(delta)
