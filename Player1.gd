@@ -19,9 +19,7 @@ func _process(delta):
 	human_control("p1_move_up", "p1_move_down")
 	if Input.is_action_pressed("p1_hit"):
 		playerAnimation.play("hit")
-		yield(playerAnimation, "animation_finished")
 	else:
-		yield(playerAnimation, "animation_finished")
-		playerAnimation.play("idle")
-		yield(playerAnimation, "animation_finished")
+		if not playerAnimation.is_playing():
+			playerAnimation.play("idle")
 	move(delta)
