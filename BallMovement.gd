@@ -39,7 +39,7 @@ func _handle_direction(collision: KinematicCollision2D):
 	else:
 		var paddle_position = collision.collider.global_position
 		var collision_position = collision.position
-		var paddle_height = collision.collider.get_node("AnimatedSprite").frames.get_frame("default", 0).get_height()
+		var paddle_height = collision.collider.get_node("Sprite").texture.get_height()
 		velocity = velocity.bounce(collision.normal)
 		velocity.x = velocity.x - X_SPEED_OFFSET if velocity.x < 0 else velocity.x + X_SPEED_OFFSET
 		velocity.y = ((collision_position.y - paddle_position.y) * ANGLE_OFFSET)
