@@ -1,10 +1,93 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player2.gd" type="Script" id=1]
 [ext_resource path="res://Pong Bar.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 22, 78.5 )
+extents = Vector2( 23, 78.5 )
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ SubResource( 6 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3, 0.5 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "hit"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2.5, 0.5 ), Vector2( 2, 0 ), Vector2( 2.5, -0.5 ), Vector2( 2, 0 ), Vector2( 2, -0.5 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
 
 [node name="Node2D" type="Node2D"]
 
@@ -16,7 +99,14 @@ scale = Vector2( 5, 6 )
 texture = ExtResource( 2 )
 hframes = 2
 vframes = 2
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player2"]
-position = Vector2( 2, -0.5 )
+position = Vector2( 3, 0.5 )
 shape = SubResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player2"]
+autoplay = "idle"
+anims/RESET = SubResource( 7 )
+anims/hit = SubResource( 8 )
+anims/idle = SubResource( 9 )

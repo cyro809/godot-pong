@@ -1,10 +1,14 @@
 extends KinematicBody2D
 
 class_name BasePlayer
-
+var IDLE_STATE = 0
+var X1_HIT_STATE = 1
+var X2_HIT_STATE = 2
+var X1_MINUS_HIT_STATE = 3
 var speed = Vector2(0, 0)
 var speed_force = 500
-
+var current_state = IDLE_STATE
+onready var animation = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,10 +24,21 @@ func move(delta):
 		if collision.collider.name == "Ball":
 			Globals.ball_node.velocity.x = 180
 
-func human_control(up_key, down_key):
+func human_control(up_key, down_key, hit_key):
 	if Input.is_action_pressed(down_key):
 		speed.y = speed_force
 	elif Input.is_action_pressed(up_key):
 		speed.y = -speed_force
 	else:
 		speed.y = 0
+	
+	handle_hit(hit_key)
+	
+
+func handle_hit(hit_key):
+	if Input.is_action_pressed(hit_key):
+		animation.play("hit")
+		print($Sprite.get_frame())
+	else:
+		if not animation.is_playing():
+			animation.play("idle")

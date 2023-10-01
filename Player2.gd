@@ -19,7 +19,7 @@ func _process(delta):
 	if ai_control:
 		self._cpu_control()
 	else:
-		human_control("p2_move_up", "p2_move_down")
+		human_control("p2_move_up", "p2_move_down", "p2_hit")
 
 	move(delta)
 

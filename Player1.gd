@@ -16,10 +16,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	human_control("p1_move_up", "p1_move_down")
-	if Input.is_action_pressed("p1_hit"):
-		playerAnimation.play("hit")
-	else:
-		if not playerAnimation.is_playing():
-			playerAnimation.play("idle")
+	human_control("p1_move_up", "p1_move_down", "p1_hit")
+	
 	move(delta)
