@@ -11,7 +11,7 @@ var velocity = Vector2()
 var rng = RandomNumberGenerator.new()
 signal score_signal(goal_name)
 var ANGLE_OFFSET = 8
-var X_SPEED_OFFSET = 100
+var X_SPEED_OFFSET = 50
 var INITIAL_POSITION = position
 
 
@@ -41,7 +41,15 @@ func _handle_direction(collision: KinematicCollision2D):
 		var collision_position = collision.position
 		var paddle_height = collision.collider.get_node("Sprite").texture.get_height()
 		velocity = velocity.bounce(collision.normal)
-		velocity.x = velocity.x - X_SPEED_OFFSET if velocity.x < 0 else velocity.x + X_SPEED_OFFSET
+		
+		if velocity.x < 0:
+			velocity.x = velocity.x - ((X_SPEED_OFFSET * collision.collider.current_state) + 1)
+			print(velocity.x)
+			print(collision.collider.current_state)
+		else:
+			velocity.x = velocity.x + ((X_SPEED_OFFSET * collision.collider.current_state) + 1)
+			print(velocity.x)
+			print(collision.collider.current_state)
 		velocity.y = ((collision_position.y - paddle_position.y) * ANGLE_OFFSET)
 
 func is_goal(collision: KinematicCollision2D):
