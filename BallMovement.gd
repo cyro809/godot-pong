@@ -9,11 +9,12 @@ var INITIAL_SPEED = -200
 var speed = INITIAL_SPEED
 var velocity = Vector2()
 var rng = RandomNumberGenerator.new()
-signal score_signal(goal_name)
 var ANGLE_OFFSET = 8
 var X_SPEED_OFFSET = 50
 var INITIAL_POSITION = position
 
+signal score_signal(goal_name)
+signal feedback_hit_signal(player_name, frame)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,16 +42,19 @@ func _handle_direction(collision: KinematicCollision2D):
 		var collision_position = collision.position
 		var paddle_height = collision.collider.get_node("Sprite").texture.get_height()
 		velocity = velocity.bounce(collision.normal)
+		var player_paddle = collision.collider
 		
 		if velocity.x < 0:
-			velocity.x = velocity.x - ((X_SPEED_OFFSET * collision.collider.current_state) + 1)
+			velocity.x = velocity.x - ((X_SPEED_OFFSET * player_paddle.current_state) + 1)
 			print(velocity.x)
-			print(collision.collider.current_state)
+			print(player_paddle.current_state)
 		else:
-			velocity.x = velocity.x + ((X_SPEED_OFFSET * collision.collider.current_state) + 1)
+			velocity.x = velocity.x + ((X_SPEED_OFFSET * player_paddle.current_state) + 1)
 			print(velocity.x)
-			print(collision.collider.current_state)
+			print(player_paddle.current_state)
 		velocity.y = ((collision_position.y - paddle_position.y) * ANGLE_OFFSET)
+		
+		handle_player_hit(player_paddle.name, player_paddle.current_state)
 
 func is_goal(collision: KinematicCollision2D):
 	return collision.collider.name == "Player1Goal" or collision.collider.name == "Player2Goal"
@@ -58,6 +62,8 @@ func is_goal(collision: KinematicCollision2D):
 func add_score(goal_name: String):
 	emit_signal("score_signal", goal_name)
 	
+func handle_player_hit(player: String, frame: int):
+	emit_signal("feedback_hit_signal", player, frame)
 
 func _reset_ball():
 	self.position = INITIAL_POSITION
