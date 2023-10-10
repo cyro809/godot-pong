@@ -6,6 +6,7 @@ var speed = INITIAL_SPEED
 var ANGLE_OFFSET = 8
 var X_SPEED_OFFSET = 50
 var INITIAL_POSITION = position
+var POWER_OFFSET = 5
 
 var velocity = Vector2()
 var rng = RandomNumberGenerator.new()
@@ -41,9 +42,9 @@ func _handle_direction(collision: KinematicCollision2D):
 		velocity = velocity.bounce(collision.normal)
 		
 		if velocity.x < 0:
-			velocity.x = velocity.x - ((X_SPEED_OFFSET * player_paddle.current_state) + 1)
+			velocity.x = velocity.x - ((X_SPEED_OFFSET * player_paddle.current_state * POWER_OFFSET) + 1)
 		else:
-			velocity.x = velocity.x + ((X_SPEED_OFFSET * player_paddle.current_state) + 1)
+			velocity.x = velocity.x + ((X_SPEED_OFFSET * player_paddle.current_state * POWER_OFFSET) + 1)
 			
 		velocity.y = ((collision_position.y - paddle_position.y) * ANGLE_OFFSET)
 		
