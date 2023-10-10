@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player1.tscn" type="PackedScene" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://WinDialog.gd" type="Script" id=6]
 [ext_resource path="res://WinnerCanva.gd" type="Script" id=7]
 [ext_resource path="res://RestartButton.gd" type="Script" id=8]
-[ext_resource path="res://hit_ball_feedback0.png" type="Texture" id=9]
 [ext_resource path="res://HitFeedbackControl.gd" type="Script" id=10]
 
 [sub_resource type="CircleShape2D" id=7]
@@ -88,7 +87,7 @@ scale = Vector2( 5, 25 )
 shape = SubResource( 9 )
 
 [node name="Score" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2, -55 )
+position = Vector2( -50, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 515, 303 )
@@ -143,9 +142,7 @@ script = ExtResource( 10 )
 [node name="HitFeedbackPlayer1" type="Sprite" parent="HitFeedbackControl"]
 position = Vector2( 236, 0 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 9 )
 
 [node name="HitFeedbackPlayer2" type="Sprite" parent="HitFeedbackControl"]
 position = Vector2( 842, 0 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 9 )

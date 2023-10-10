@@ -5,20 +5,14 @@ var IDLE_STATE = 0
 var X1_HIT_STATE = 1
 var X2_HIT_STATE = 2
 var X1_MINUS_HIT_STATE = 3
+
+var current_state = IDLE_STATE
 var speed = Vector2(0, 0)
 var speed_force = 500
-var current_state = IDLE_STATE
+
 onready var animation = $AnimationPlayer
 onready var sprite = $Sprite
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 func move(delta):
 	var collision = move_and_collide(speed * delta)
 	if collision != null:
@@ -53,4 +47,4 @@ func handle_state():
 			current_state = X1_HIT_STATE
 		2:
 			current_state = X2_HIT_STATE
-		
+			
