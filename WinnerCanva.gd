@@ -17,7 +17,9 @@ func _show_winner_popup(winner_player: String):
 	
 func _show_pause_menu():
 	self.get_node("CanvaText").bbcode_text = "[center]%s[/center]" % "Paused"
+	self.get_node("ContinueButton").visible = true
 	self.visible = true
+	get_tree().paused = true
 
 func _process(delta):
 	if Input.is_action_pressed("pause"):

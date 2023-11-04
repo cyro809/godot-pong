@@ -12,4 +12,5 @@ func _ready():
 
 func _resume_game():
 	get_tree().paused = false
+	self.visible = false
 	get_parent().visible = false

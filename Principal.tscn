@@ -105,6 +105,7 @@ script = ExtResource( 6 )
 
 [node name="DialogCanva" type="ColorRect" parent="."]
 pause_mode = 2
+visible = false
 margin_left = 100.0
 margin_right = 900.0
 margin_bottom = 450.0
@@ -142,6 +143,7 @@ text = "Quit"
 
 [node name="ContinueButton" type="Button" parent="DialogCanva"]
 pause_mode = 2
+visible = false
 margin_left = 352.0
 margin_top = 181.0
 margin_right = 478.0
