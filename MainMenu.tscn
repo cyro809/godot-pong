@@ -1,4 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://GameStartButton.gd" type="Script" id=1]
 
 [node name="Node2D" type="Node2D"]
 
@@ -9,49 +11,51 @@ color = Color( 0.396078, 0.0980392, 0.0980392, 1 )
 margin_right = 1280.0
 margin_bottom = 720.0
 
-[node name="Button" type="Button" parent="CanvasModulate/ColorRect"]
+[node name="P1vP2Button" type="Button" parent="CanvasModulate/ColorRect"]
 margin_left = 540.0
 margin_top = 300.0
 margin_right = 690.0
 margin_bottom = 350.0
 text = "P1 vs P2"
+script = ExtResource( 1 )
 
-[node name="Button2" type="Button" parent="CanvasModulate/ColorRect"]
+[node name="P1vCPUButton" type="Button" parent="CanvasModulate/ColorRect"]
 margin_left = 540.0
 margin_top = 375.0
 margin_right = 690.0
 margin_bottom = 425.0
 text = "P1 vs CPU"
+script = ExtResource( 1 )
 
-[node name="Button3" type="Button" parent="CanvasModulate/ColorRect"]
+[node name="InstructionsButton" type="Button" parent="CanvasModulate/ColorRect"]
 margin_left = 540.0
 margin_top = 450.0
 margin_right = 690.0
 margin_bottom = 500.0
 text = "Instructions"
 
-[node name="Button4" type="Button" parent="CanvasModulate/ColorRect"]
+[node name="QuitButton" type="Button" parent="CanvasModulate/ColorRect"]
 margin_left = 540.0
 margin_top = 650.0
 margin_right = 690.0
 margin_bottom = 700.0
 text = "Quit"
 
-[node name="HSlider" type="HSlider" parent="CanvasModulate/ColorRect"]
+[node name="SfxVolumeSlider" type="HSlider" parent="CanvasModulate/ColorRect"]
 margin_left = 540.0
 margin_top = 525.0
 margin_right = 690.0
 margin_bottom = 575.0
 step = 10.0
 
-[node name="HSlider2" type="HSlider" parent="CanvasModulate/ColorRect"]
+[node name="MusicVolumeSlider" type="HSlider" parent="CanvasModulate/ColorRect"]
 margin_left = 540.0
 margin_top = 600.0
 margin_right = 690.0
 margin_bottom = 650.0
 step = 10.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasModulate/ColorRect"]
+[node name="SfxVolumeLabel" type="RichTextLabel" parent="CanvasModulate/ColorRect"]
 margin_left = 540.0
 margin_top = 525.0
 margin_right = 690.0
@@ -60,7 +64,7 @@ bbcode_enabled = true
 bbcode_text = "[color=#000][b][center]SFX Volume[/center][/b][/color]"
 text = "SFX Volume"
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasModulate/ColorRect"]
+[node name="MusicVolumeLabel" type="RichTextLabel" parent="CanvasModulate/ColorRect"]
 margin_left = 125.0
 margin_top = 100.0
 margin_right = 275.0
@@ -70,7 +74,7 @@ bbcode_enabled = true
 bbcode_text = "[color=#000][b][center]Smash Pong[/center][/b][/color]"
 text = "Smash Pong"
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasModulate/ColorRect"]
+[node name="GameTitle" type="RichTextLabel" parent="CanvasModulate/ColorRect"]
 margin_left = 540.0
 margin_top = 600.0
 margin_right = 690.0
