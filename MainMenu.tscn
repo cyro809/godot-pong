@@ -1,0 +1,45 @@
+[gd_scene format=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.396078, 0.0980392, 0.0980392, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasModulate"]
+margin_right = 1280.0
+margin_bottom = 720.0
+
+[node name="Button" type="Button" parent="CanvasModulate/ColorRect"]
+margin_left = 540.0
+margin_top = 300.0
+margin_right = 690.0
+margin_bottom = 350.0
+text = "P1 vs P2"
+
+[node name="Button2" type="Button" parent="CanvasModulate/ColorRect"]
+margin_left = 540.0
+margin_top = 375.0
+margin_right = 690.0
+margin_bottom = 425.0
+text = "P1 vs CPU"
+
+[node name="Button3" type="Button" parent="CanvasModulate/ColorRect"]
+margin_left = 540.0
+margin_top = 450.0
+margin_right = 690.0
+margin_bottom = 500.0
+text = "Instructions"
+
+[node name="HSlider" type="HSlider" parent="CanvasModulate/ColorRect"]
+margin_left = 540.0
+margin_top = 525.0
+margin_right = 690.0
+margin_bottom = 575.0
+step = 10.0
+
+[node name="HSlider2" type="HSlider" parent="CanvasModulate/ColorRect"]
+margin_left = 540.0
+margin_top = 600.0
+margin_right = 690.0
+margin_bottom = 650.0
+step = 10.0
