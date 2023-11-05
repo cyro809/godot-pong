@@ -5,7 +5,7 @@ var p2_score = 0
 var MAX_SCORE = 3
 onready var ball = get_tree().current_scene.get_node("Ball")
 onready var win_dialog = get_tree().current_scene.get_node("AcceptDialog")
-onready var winner_dialog = get_tree().current_scene.get_node("WinnerCanva")
+onready var winner_dialog = get_tree().current_scene.get_node("DialogCanva")
 signal game_over_signal(winner_player)
 
 # Called when the node enters the scene tree for the first time.
