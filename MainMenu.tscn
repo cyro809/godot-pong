@@ -30,6 +30,13 @@ margin_right = 690.0
 margin_bottom = 500.0
 text = "Instructions"
 
+[node name="Button4" type="Button" parent="CanvasModulate/ColorRect"]
+margin_left = 540.0
+margin_top = 650.0
+margin_right = 690.0
+margin_bottom = 700.0
+text = "Quit"
+
 [node name="HSlider" type="HSlider" parent="CanvasModulate/ColorRect"]
 margin_left = 540.0
 margin_top = 525.0
@@ -43,3 +50,31 @@ margin_top = 600.0
 margin_right = 690.0
 margin_bottom = 650.0
 step = 10.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasModulate/ColorRect"]
+margin_left = 540.0
+margin_top = 525.0
+margin_right = 690.0
+margin_bottom = 545.0
+bbcode_enabled = true
+bbcode_text = "[color=#000][b][center]SFX Volume[/center][/b][/color]"
+text = "SFX Volume"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasModulate/ColorRect"]
+margin_left = 125.0
+margin_top = 100.0
+margin_right = 275.0
+margin_bottom = 120.0
+rect_scale = Vector2( 7, 7 )
+bbcode_enabled = true
+bbcode_text = "[color=#000][b][center]Smash Pong[/center][/b][/color]"
+text = "Smash Pong"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasModulate/ColorRect"]
+margin_left = 540.0
+margin_top = 600.0
+margin_right = 690.0
+margin_bottom = 620.0
+bbcode_enabled = true
+bbcode_text = "[color=#000][b][center]Music Volume[/center][/b][/color]"
+text = "Music Volume"
