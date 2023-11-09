@@ -7,6 +7,7 @@ extends Button
 signal start_cpu_game
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if self.name == "P1vP2Button":
@@ -20,8 +21,9 @@ func _ready():
 #func _process(delta):
 #	pass
 func _game_start_2_players():
+	GameState.is_player2_cpu = false
 	get_tree().change_scene("res://Principal.tscn")
 	
 func _game_start_cpu_player():
-	emit_signal("start_cpu_game")
+	GameState.is_player2_cpu = true
 	get_tree().change_scene("res://Principal.tscn")
