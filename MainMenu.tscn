@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://GameStartButton.gd" type="Script" id=1]
+[ext_resource path="res://QuitButton.gd" type="Script" id=2]
 
 [node name="Node2D" type="Node2D"]
+pause_mode = 2
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.396078, 0.0980392, 0.0980392, 1 )
@@ -40,6 +42,7 @@ margin_top = 650.0
 margin_right = 690.0
 margin_bottom = 700.0
 text = "Quit"
+script = ExtResource( 2 )
 
 [node name="SfxVolumeSlider" type="HSlider" parent="CanvasModulate/ColorRect"]
 margin_left = 540.0
