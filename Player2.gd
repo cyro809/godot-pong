@@ -9,6 +9,8 @@ var ai_control = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	my_position_x = position.x
+	if GameState.is_player2_cpu:
+		toggle_cpu_control()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,7 +32,10 @@ func _ai_speed_on_ball_position():
 	var ball_position = ball.global_position.y
 	var ball_height = ball.get_node("Sprite").texture.get_height()
 	
-	if ball_position + ball_height/2 > global_position.y + get_node("AnimatedSprite").frames.get_frame("default", 0).get_height()/2:
+	if ball_position + ball_height/2 > global_position.y + get_node("Sprite").texture.get_height()/4:
 		return speed_force
-	elif ball_position + ball_height/2 < global_position.y + get_node("AnimatedSprite").frames.get_frame("default", 0).get_height()/2:
+	elif ball_position + ball_height/2 < global_position.y + get_node("Sprite").texture.get_height()/4:
 		return -speed_force
+
+func toggle_cpu_control():
+	ai_control = true
