@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://GameStartButton.gd" type="Script" id=1]
 [ext_resource path="res://QuitButton.gd" type="Script" id=2]
+[ext_resource path="res://MenuSlider.gd" type="Script" id=3]
 
 [node name="Node2D" type="Node2D"]
 pause_mode = 2
@@ -50,6 +51,7 @@ margin_top = 525.0
 margin_right = 690.0
 margin_bottom = 575.0
 step = 10.0
+script = ExtResource( 3 )
 
 [node name="MusicVolumeSlider" type="HSlider" parent="CanvasModulate/ColorRect"]
 margin_left = 540.0
@@ -57,6 +59,7 @@ margin_top = 600.0
 margin_right = 690.0
 margin_bottom = 650.0
 step = 10.0
+script = ExtResource( 3 )
 
 [node name="SfxVolumeLabel" type="RichTextLabel" parent="CanvasModulate/ColorRect"]
 margin_left = 540.0
