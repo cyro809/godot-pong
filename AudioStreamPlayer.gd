@@ -1,12 +1,10 @@
-extends Node
+extends AudioStreamPlayer
 
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var is_player2_cpu = false
-var sfx_volume = -40
-var music_volume = -40
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,5 +12,6 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), GameState.music_volume)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Sfx"), GameState.sfx_volume)
