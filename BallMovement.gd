@@ -57,6 +57,7 @@ func add_score(goal_name: String):
 	emit_signal("score_signal", goal_name)
 	
 func handle_player_hit(player: String, frame: int):
+	$AudioStreamPlayer2D.play()
 	emit_signal("feedback_hit_signal", player, frame)
 
 func _reset_ball():
