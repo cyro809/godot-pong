@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://GameStartButton.gd" type="Script" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.447059, 0.0470588, 0.0470588, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasModulate"]
+margin_right = 1280.0
+margin_bottom = 720.0
+
+[node name="P1Controls" type="RichTextLabel" parent="CanvasModulate/ColorRect"]
+margin_top = 300.0
+margin_right = 400.0
+margin_bottom = 700.0
+rect_scale = Vector2( 2, 2 )
+bbcode_enabled = true
+bbcode_text = "[color=#000][center]P1 controls:
+W S moves paddle
+D to power hit"
+text = "P1 controls:
+W S moves paddle
+D to power hit"
+
+[node name="P2Controls" type="RichTextLabel" parent="CanvasModulate/ColorRect"]
+margin_left = 540.0
+margin_top = 300.0
+margin_right = 940.0
+margin_bottom = 700.0
+rect_scale = Vector2( 2, 2 )
+bbcode_enabled = true
+bbcode_text = "[color=#000][center]P2 controls:
+Up Down arrow keys moves paddle
+Right arrow key to power hit"
+text = "P2 controls:
+Up Down arrow keys moves paddle
+Right arrow key to power hit"
+
+[node name="StartGameButton" type="Button" parent="CanvasModulate/ColorRect"]
+margin_left = 530.0
+margin_top = 600.0
+margin_right = 680.0
+margin_bottom = 650.0
+text = "Start"
+script = ExtResource( 1 )
